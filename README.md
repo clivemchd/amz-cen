@@ -1,2 +1,2 @@
-# demoRedactor
-Demo implementation of Redactor editor in Angular js. 
+# amz-cen
+coming - soon 
