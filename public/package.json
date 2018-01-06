@@ -1,0 +1,21 @@
+{
+  "name": "cen-app",
+  "version": "1.0.0",
+  "description": "cen-app",
+  "author": "clive-mac",
+  "license": "ISC",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "dependencies": {
+    "angular": "^1.6.5",
+    "angular-mocks": "^1.6.7",
+    "angular-ui-router": "^0.4.1"
+  },
+  "devDependencies": {
+    "jasmine-core": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.1"
+  }
+}

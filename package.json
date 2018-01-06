@@ -1,0 +1,24 @@
+{
+  "name": "amz-cen",
+  "version": "1.0.0",
+  "description": "amz-cen",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "author": "clive-mac",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "dependencies": {
+    "express": "^4.15.3"
+  },
+  "devDependencies": {}
+}
