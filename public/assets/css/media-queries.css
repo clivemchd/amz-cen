@@ -1,0 +1,22 @@
+@media only screen and (max-width: 767px) {
+  
+  /* For tablet & mobile view center the brand image in navbar */
+  .navbar {
+    position: relative;
+  }
+  .brand-img {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px !important;
+    display: block;
+  }
+  /* Changes navbar background color in tablet & mobile view*/
+  .navbar-default {
+    transition: background 3s ease;
+    background: #333;
+  }
+  /* Changes the color of nav link to white */
+  #navBar li a {
+    color: #bcbcbc;
+  }
+}

@@ -113,9 +113,11 @@ mainModConfig(mainMod)
 /*************************************************************************
  * mainMod Run
  *************************************************************************/
-// mainMod.run(['', function () {
-
-// }])
+mainMod.run([
+  '$location'
+, function ($location) {
+    
+}])
 
 /***/ }),
 /* 1 */
@@ -39014,13 +39016,25 @@ angular.module('ui.router.state')
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = function (mainMod) {
-  mainMod.controller('main-mod-ctrl', [
-  '$scope' 
-  , function ($scope) {
-      $scope.test = "test"
-  }])
-}
+( function () {
+  'use strict'
+
+  module.exports = function (mainMod) {
+    mainMod.controller('main-mod-ctrl', [
+    '$scope',
+    '$location'
+    , function ($scope, $location) {
+      /**
+       * navbar values 
+       */
+      $scope.navbar = function (eleID) {
+        console.log("eleID", eleID);
+      }
+
+    }])
+  }
+
+})()
 
 /***/ }),
 /* 5 */
@@ -39031,19 +39045,22 @@ module.exports = function (app) {
 }
 
 function statesFunc($stateProvider, $locationProvider, $urlRouterProvider) {
-	$locationProvider.hashPrefix('')
+	$locationProvider.hashPrefix('');
+	$locationProvider.html5Mode({
+		enabled: true,
+		requireBase: false
+	}	);
 	$stateProvider
 	.state('home', state.home)
-	
-	$urlRouterProvider
-	.otherwise('/home')
 
+	$urlRouterProvider
+	.otherwise('/')
 }
 
 var state = {
 	home : {
-		url : '/home',
-		views: 
+		url 	: '/',
+		views : 
 		{
 			'' : {
 				templateUrl : './main-mod/views/home.html',				
@@ -39055,7 +39072,7 @@ var state = {
 				requiredLogin : false
 			}	
 		}	
-  }
+	}
 }
 
 /***/ })

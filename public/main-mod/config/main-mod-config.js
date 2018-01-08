@@ -3,19 +3,22 @@ module.exports = function (app) {
 }
 
 function statesFunc($stateProvider, $locationProvider, $urlRouterProvider) {
-	$locationProvider.hashPrefix('')
+	$locationProvider.hashPrefix('');
+	$locationProvider.html5Mode({
+		enabled: true,
+		requireBase: false
+	}	);
 	$stateProvider
 	.state('home', state.home)
-	
-	$urlRouterProvider
-	.otherwise('/home')
 
+	$urlRouterProvider
+	.otherwise('/')
 }
 
 var state = {
 	home : {
-		url : '/home',
-		views: 
+		url 	: '/',
+		views : 
 		{
 			'' : {
 				templateUrl : './main-mod/views/home.html',				
@@ -27,5 +30,5 @@ var state = {
 				requiredLogin : false
 			}	
 		}	
-  }
+	}
 }
