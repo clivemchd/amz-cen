@@ -39021,7 +39021,7 @@ angular.module('ui.router.state')
 
   module.exports = function (mainMod) {
     mainMod.controller('main-mod-ctrl', [
-    '$scope',
+    '$scope'
     , function ($scope) {
       /**
        * navbar values 
