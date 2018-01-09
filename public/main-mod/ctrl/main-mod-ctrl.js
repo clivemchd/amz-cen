@@ -4,8 +4,7 @@
   module.exports = function (mainMod) {
     mainMod.controller('main-mod-ctrl', [
     '$scope',
-    '$location'
-    , function ($scope, $location) {
+    , function ($scope) {
       /**
        * navbar values 
        */
