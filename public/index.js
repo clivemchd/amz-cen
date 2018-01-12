@@ -1,28 +1,27 @@
-var angular 						= require('angular')
-var ui_router 					= require('angular-ui-router')
+var angular 						= require('angular');
+var ui_router 					= require('angular-ui-router');
+var angular_scroll      = require('angular-scroll');
 
 /*************************************************************************
  * Variable Declarations
  *************************************************************************/
-var compoPath = './main-mod/components' 
-
+var compoPath = './main-mod/components'; 
 
 /*************************************************************************
  * JS files required in Index.js
  *************************************************************************/
-var mainModCtrl         = require('./main-mod/ctrl/main-mod-ctrl')
-var mainModConfig       = require('./main-mod/config/main-mod-config')
-
+var mainModCtrl         = require('./main-mod/ctrl/main-mod-ctrl');
+var mainModConfig       = require('./main-mod/config/main-mod-config');
 
 /*************************************************************************
  * Initializing Application Main Module
  *************************************************************************/
- var mainMod								= angular.module('amz-cen', ['ui.router'])
+ var mainMod								= angular.module('amz-cen', ['ui.router', 'duScroll']);
 
 /*************************************************************************
  * mainMod Controllers
  *************************************************************************/
-mainModCtrl(mainMod)
+mainModCtrl(mainMod);
 
 
 /*************************************************************************
@@ -38,7 +37,7 @@ mainModCtrl(mainMod)
 /*************************************************************************
  * mainMod Config
  *************************************************************************/
-mainModConfig(mainMod)
+mainModConfig(mainMod);
 
 
 /*************************************************************************
@@ -48,4 +47,4 @@ mainMod.run([
   '$location'
 , function ($location) {
     
-}])
+}]);

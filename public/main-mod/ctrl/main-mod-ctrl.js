@@ -3,16 +3,23 @@
 
   module.exports = function (mainMod) {
     mainMod.controller('main-mod-ctrl', [
-    '$scope'
-    , function ($scope) {
+    '$scope',
+    '$document',
+    '$timeout'
+    , function ($scope, $document, $timeout) {
       /**
-       * navbar values 
+       * navbar scroll to div
        */
-      $scope.navbar = function (eleID) {
-        console.log("eleID", eleID);
-      }
+      $scope.navbar = function (eleID) { 
+        var getDivByElement = angular.element(document.getElementById(eleID))
+        //Timeout adds a delay effect.
+        $timeout(function() {
+          /* .scrollToElementAnimated( element [, offset, [, duration [, easing ] ] ] ) */         
+          $document.scrollToElementAnimated(getDivByElement, 70, 800);       
+        }, 500);
+      };
 
-    }])
-  }
+    }]);
+  };
 
-})()
+})();
