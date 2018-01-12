@@ -39032,7 +39032,7 @@ angular.module('ui.router.state')
         //Timeout adds a delay effect.
         $timeout(function() {
           /* .scrollToElementAnimated( element [, offset, [, duration [, easing ] ] ] ) */         
-          $document.scrollToElementAnimated(getDivByElement, 70, 800);       
+          $document.scrollToElementAnimated(getDivByElement, 70, 200);       
         }, 500);
       };
 
