@@ -1,21 +1,38 @@
-.parallax-container {
-  height: 1000px;  
+.home-wrapper {
+  height: 650px;
 }
 
-.parallax-container {
-  background-color: #ffedc2;
-}
-
-.parallax_layer {
-  background-position: top;
+.cover-image {
+  height: 1000px;
+  position: fixed;  
+  background: url('/assets/img/home-bg.svg');  
   background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center; 
+  position: fixed;
+  width: 100%;
+  z-index: -1;
 }
 
-#layer-0 {
-  background: url('/assets/img/parallax/Sun.svg');
+.home-wrapper h1 {
+  color: #ffffff;
+  margin: 0px;
+  text-align: center;
 }
 
-#layer-1 {
-  background: url('/assets/img/parallax/Mountains.svg');
+#full-name {
+  padding-top: 250px;
+  font-family: 'Montserrat-Regular';
+  font-size: 40px;
+  letter-spacing : 6px;
 }
+
+#current-title {
+  padding-top: 8px;
+  font-weight: 300;
+  font-family: 'Montserrat-UltraLight';
+  font-size: 25px;
+  letter-spacing: 5px;
+}
+
 

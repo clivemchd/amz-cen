@@ -1,6 +1,8 @@
 /* removes default border bottom provided by bootstrap*/
 .navbar {
-  border: none; 
+  border: none;
+  margin-bottom: 0px;
+  border-radius: inherit; 
 }
 /* Removes default border top & a box shadow provided by bootstrap*/
 .navbar-collapse {
@@ -9,7 +11,7 @@
 }
 /* Makes the navbar background transparent*/
 .navbar-default {
-  background:  transparent;
+  background:  #211e48;
 }
 /* Removes background color and border for toggle button in navbar-header*/
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
