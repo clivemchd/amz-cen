@@ -1,5 +1,9 @@
 @media only screen and (max-width: 767px) {
   
+  .fixed-nav {
+    z-index: 50;
+  }
+
   /* For tablet & mobile view center the brand image in navbar */
   .navbar {
     position: relative;
@@ -18,5 +22,13 @@
   /* Changes the color of nav link to white */
   #navBar li a {
     color: #bcbcbc;
+  }
+
+  .cover-image {
+    height: 800px;
+  }
+
+  #full-name {
+    padding-top: 190px;    
   }
 }

@@ -1,6 +1,7 @@
 .fixed-nav {
   position: sticky;
   top: 0;
+  /* z-index: 50; */
 }
 
 /*Crops extra white space for brnad image */

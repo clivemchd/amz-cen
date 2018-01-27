@@ -13,7 +13,7 @@
   ***********************************************************************************  -->
   <div id="about" ng-app="amz-cen.about">
     <div ng-controller="about-mod-ctrl" class="about-wrapper">
-      <h1 class="about-title">{{aboutMe.title}}</h1>
+      <h1 class="div-title">{{aboutMe.title}}</h1>
       <p class="about-description">{{aboutMe.description}}</p>
       <p class="about-other-description">{{aboutMe.otherDescription}}</p>      
     </div>
@@ -35,12 +35,17 @@
   ***********************************************************************************  -->
   <div id="contact">
     <div class="contacts-wrapper">
-      <h1 class="about-title">Let's get in touch</h1>        
-      <form action="">
-        Who are you : <input type="text" placeholder="Name">
-        How do i get back to you : <input type="text" placeholder="email">        
-        Drop a message : <input type="textarea" placeholder="">
-        <button type="submit"></button>
+      <h1 class="div-title">Let's get in touch</h1>        
+      <form id="contact-form" action="">
+        <input type="text" placeholder="Name" required>
+        <input type="text" placeholder="Email Address" required>      
+        <input type="text" placeholder="Phone" required>
+        <input type="text" placeholder="Subject" required>                      
+        <input type="text" placeholder="Your Message" required>
+        <button class="contact-submit-btn" type="submit">
+          <span><i class="fa fa-paper-plane" aria-hidden="true"></i></span>
+          Send
+        </button>
       </form>
     </div>
   </div>

@@ -21,8 +21,9 @@ a {
 }
 
 #about, #contact {
-  height: 400px;
+  min-height: 400px;
   background: #ffffffe6;
+  padding: 4%;
 }
 
 /*********************************************************************************
@@ -38,7 +39,7 @@ a {
   text-align: center;
 }
 
-.about-title {
+.div-title {
   padding-top: 50px;
   font-family: 'OpenSans-Light', sans-serif !important;
   color: #252525;
@@ -70,6 +71,44 @@ a {
 *********************************************************************************/
 .contacts-wrapper {
   text-align: center;
+}
+
+#contact-form input {
+  font-weight: 300;
+  color: #999;
+  opacity: 1;
+  height: 48px;
+  padding: 8px 4px;
+  font-size: 21px;
+  letter-spacing: 1px;
+  background-color: transparent !important;
+  border-top: transparent;
+  border-right: transparent;
+  border-left: transparent;
+  border-bottom: 1px solid #b3b3b3;
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 2%;
+}
+
+.contact-submit-btn {
+  background: transparent;
+  letter-spacing: 2.5px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 9px;
+  width: 200px;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.contact-submit-btn:hover {
+  background: #32d9b8;
+  color: white;
+  box-shadow: 1px 3px 17px 0 rgba(0, 0, 0, 0.15);
+  transition: all .20s ease-in-out;
+  transform: scale(1.05, 1.05);
 }
 
 #footer {
