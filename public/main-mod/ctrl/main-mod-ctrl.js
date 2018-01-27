@@ -22,7 +22,6 @@
       };
 
       $scope.isloadDone = function () {
-        console.log("done");
         $scope.hideUiView = false;
       }
 

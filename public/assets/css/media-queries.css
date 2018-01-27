@@ -31,4 +31,8 @@
   #full-name {
     padding-top: 190px;    
   }
+
+  #contact-form .form-input {
+    width: 80%
+  }
 }

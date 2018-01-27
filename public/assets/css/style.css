@@ -18,6 +18,22 @@ html, body {
 /** Removes all outlines that appear in firefox after clciking the anchor tag */
 a {
   outline: none;
+  text-decoration: none
+}
+
+a:hover {
+  text-decoration: none;
+  outline: none;  
+}
+
+a:active {
+  text-decoration: none;
+  outline: none;  
+}
+
+a:focus {
+  text-decoration: none;
+  outline: none;  
 }
 
 .main-page-loader {
@@ -81,13 +97,13 @@ a {
 }
 
 /*********************************************************************************
-*                                       Contacts
+*                                       CONTACT
 *********************************************************************************/
 .contacts-wrapper {
   text-align: center;
 }
 
-#contact-form input {
+#contact-form .form-input {
   font-weight: 300;
   color: #999;
   opacity: 1;
@@ -102,6 +118,12 @@ a {
   border-bottom: 1px solid #b3b3b3;
   font-family: 'Source Sans Pro', sans-serif;
   margin: 2%;
+  width: 40%;
+}
+
+#contact-form .contact-message {
+  width: 85%;
+  resize: none;
 }
 
 .contact-submit-btn {
@@ -112,7 +134,7 @@ a {
   padding: 9px;
   width: 200px;
   display: block;
-  text-align: center;
+  text-align: center; 
   margin: 0 auto;
   margin-top: 30px;
 }
@@ -125,9 +147,46 @@ a {
   transform: scale(1.05, 1.05);
 }
 
+.afterFormSent p {
+  font-size: 21px;
+  font-family: 'OpenSans-Light', 'Helvetica', 'Arial', sans-serif;
+  color: #808087;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+.form-sending-loader {
+  font-size: 50px;
+  color: #8cffb6;
+}
+
+.form-sending-loader p {
+  font-size: 21px;
+  font-family: 'OpenSans-Light', 'Helvetica', 'Arial', sans-serif;
+  color: #808087;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/*********************************************************************************
+*                                       FOOTER
+*********************************************************************************/
+
 #footer {
+  text-align: center;
   height: 100px;
   background: #000000;
+}
+
+#footer i {
+  padding: 0px 3px;
+  color: #ffffff;
+  font-size: 20px;
+  margin-top: 40px;
+}
+
+#footer i:hover {
+  color: #333;  
 }
 
 

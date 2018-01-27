@@ -89,7 +89,8 @@ var compoPath = './main-mod/components';
  *************************************************************************/
 var mainModCtrl         = __webpack_require__(7);
 var mainModConfig       = __webpack_require__(8);
-var about               = __webpack_require__(9)(compoPath + '/about/about.js'); 
+var about               = __webpack_require__(9)(compoPath + '/about/about.js');
+var contact             = __webpack_require__(13)(compoPath + '/contact/contact.js'); 
 
 
 /*************************************************************************
@@ -98,7 +99,8 @@ var about               = __webpack_require__(9)(compoPath + '/about/about.js');
 var baseModules = [
   'ui.router',
   'duScroll',
-   about.name
+   about.name,
+   contact.name
 ]
 
 /*************************************************************************
@@ -39731,7 +39733,6 @@ module.exports = function(module) {
       };
 
       $scope.isloadDone = function () {
-        console.log("done");
         $scope.hideUiView = false;
       }
 
@@ -39830,6 +39831,118 @@ module.exports = [
     description: "I'm a Application Engineer with a year of experience based in Mumbai. I have a Master's Degree focused in Master of Computer Application from Thakur Institute of Management Studies, Career Development and research.", 
     otherDescription: "So feel free to talk to me for all things tech & nerdy."
   };
+}]
+
+/***/ }),
+/* 12 */,
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./main-mod/components/contact/contact.js": 14
+};
+function webpackContext(req) {
+	return __webpack_require__(webpackContextResolve(req));
+};
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) // check for number or string
+		throw new Error("Cannot find module '" + req + "'.");
+	return id;
+};
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 13;
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+( function (){
+  'use strict'
+
+  var contactModCtrl = __webpack_require__(15)
+
+  module.exports = angular.module('amz-cen.contact', [])
+  .controller("contact-mod-ctrl", contactModCtrl);
+
+})();
+
+
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
+
+module.exports = [
+    '$scope'
+  , '$timeout'
+  , function($scope, $timeout) {
+
+    $scope.name         = !localStorage.getItem("user") ? $scope.name     = undefined : $scope.name    = parseValue('name');    
+    $scope.email        = !localStorage.getItem("user") ? $scope.email    = undefined : $scope.email   = parseValue('email');
+    $scope.subject      = !localStorage.getItem("user") ? $scope.subject  = undefined : $scope.subject = parseValue('subject');
+    $scope.phone        = !localStorage.getItem("user") ? $scope.phone    = undefined : $scope.phone   = parseValue('phone');
+    $scope.message      = !localStorage.getItem("user") ? $scope.message  = undefined : $scope.message = parseValue('message');
+    
+    $scope.isFormSent   = !localStorage.getItem("isFormSent") ? $scope.isFormSent = false : $scope.isFormSent = true;
+    $scope.formSending  = false;
+
+
+    $scope.submitFormData = function () {
+      $scope.formSending = true;
+      // validateUserData();
+      var userProfile    = {
+        name    : $scope.name,
+        email   : $scope.email,
+        subject : $scope.subject,
+        phone   : $scope.phone,
+        message : $scope.message
+      }
+      localStorage.setItem("isFormSent", true);    
+      localStorage.setItem("user", JSON.stringify(userProfile));
+      $timeout(function(){
+        $scope.formSending = false;
+        if(localStorage.getItem("isFormSent") === "true") {
+          $scope.isFormSent = true;
+        }      
+      }, 5000);
+    };
+    
+    $scope.sendFormAgain = function () {
+      $scope.isFormSent = false;
+      localStorage.removeItem("isFormSent");
+      localStorage.removeItem("user");     
+    };
+
+    function validateFormData () {
+
+    }
+
+    function parseValue(key) {
+      var parsedUserProfile = JSON.parse(localStorage.getItem("user"));
+      switch (key) {
+        case 'name' : 
+          return parsedUserProfile.name
+          break;
+        case 'email' : 
+          return parsedUserProfile.email
+          break;
+        case 'subject' : 
+          return parsedUserProfile.subject
+          break;
+        case 'phone' : 
+          return parsedUserProfile.phone
+          break;
+        case 'message' : 
+          return parsedUserProfile.message
+          break;
+      }
+    }
+
 }]
 
 /***/ })

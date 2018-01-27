@@ -33,27 +33,52 @@
   <!-- *********************************************************************************** 
   **                                       CONTACT 
   ***********************************************************************************  -->
-  <div id="contact">
-    <div class="contacts-wrapper">
-      <h1 class="div-title">Let's get in touch</h1>        
-      <form id="contact-form" action="">
-        <input type="text" placeholder="Name" required>
-        <input type="text" placeholder="Email Address" required>      
-        <input type="text" placeholder="Phone" required>
-        <input type="text" placeholder="Subject" required>                      
-        <input type="text" placeholder="Your Message" required>
-        <button class="contact-submit-btn" type="submit">
-          <span><i class="fa fa-paper-plane" aria-hidden="true"></i></span>
-          Send
-        </button>
+  <div id="contact" ng-app="amz-cen.contact">
+    <div class="contacts-wrapper" ng-controller="contact-mod-ctrl">
+      <h1 class="div-title" ng-hide="isFormSent">Let's get in touch</h1>
+      <h1 class="div-title" ng-show="isFormSent">Awesome!</h1>              
+      <form id="contact-form" ng-hide="isFormSent">
+        <span ng-hide="formSending">
+          <input type="text" class="form-input" placeholder="*Name" required ng-model="name" ng-disabled="formSending">
+          <input type="text" class="form-input" placeholder="*Email Address" required ng-model="email" ng-disabled="formSending">      
+          <input type="text" class="form-input" placeholder="Phone" ng-model="phone" ng-disabled="formSending">
+          <input type="text" class="form-input" placeholder="*Subject" required ng-model="subject" ng-disabled="formSending">                      
+          <textarea type="text" class="contact-message form-input" placeholder="*Your Message" required ng-model="message" ng-disabled="formSending"></textarea>
+          <button class="contact-submit-btn" ng-click="submitFormData()">
+            <span><i class="fa fa-paper-plane" aria-hidden="true"></i></span>
+            Send
+          </button>
+        </span>
+        <span class="form-sending-loader" ng-show="formSending">
+          <i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
+          <p class="div-title">Please hold on {{ name }}</p>        
+        </span>          
       </form>
+      <div class="afterFormSent" ng-show="isFormSent">
+        <p class="div-title">Thanks {{ name }} for contacting me, I'll get back to you as fast as I can. Cheers!</p>
+        <button class="contact-submit-btn" ng-click="sendFormAgain()">
+          <span><i class="fa fa-paper-plane" aria-hidden="true"></i></span>
+          Send Again
+        </button>
+      </div>
     </div>
   </div>
   <!-- *********************************************************************************** 
   **                                       FOOTER 
   ***********************************************************************************  -->
   <div id="footer">
-
+    <a href="https://www.facebook.com/clivemchd" target="_blank">
+      <i class="fa fa-facebook" aria-hidden="true"></i>    
+    </a>
+    <a href="https://twitter.com/clivemchd" target="_blank">
+      <i class="fa fa-twitter" aria-hidden="true"></i>    
+    </a>
+    <a href="https://stackoverflow.com/users/7566608/clive-mac" target="_blank">
+      <i class="fa fa-stack-overflow" aria-hidden="true"></i>    
+    </a>
+    <a href="https://github.com/clivemchd" target="_blank">
+      <i class="fa fa-github" aria-hidden="true"></i>       
+    </a>
   </div>
 </div>
 

@@ -12,7 +12,8 @@ var compoPath = './main-mod/components';
  *************************************************************************/
 var mainModCtrl         = require('./main-mod/ctrl/main-mod-ctrl');
 var mainModConfig       = require('./main-mod/config/main-mod-config');
-var about               = require(compoPath + '/about/about.js'); 
+var about               = require(compoPath + '/about/about.js');
+var contact             = require(compoPath + '/contact/contact.js'); 
 
 
 /*************************************************************************
@@ -21,7 +22,8 @@ var about               = require(compoPath + '/about/about.js');
 var baseModules = [
   'ui.router',
   'duScroll',
-   about.name
+   about.name,
+   contact.name
 ]
 
 /*************************************************************************
