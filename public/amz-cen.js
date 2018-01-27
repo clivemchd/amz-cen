@@ -60,16 +60,24 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var angular 						= __webpack_require__(1);
+__webpack_require__(2);
+module.exports = angular;
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var angular 						= __webpack_require__(0);
 var ui_router 					= __webpack_require__(3);
-var angular_scroll      = __webpack_require__(6);
+var angular_scroll      = __webpack_require__(4);
 
 /*************************************************************************
  * Variable Declarations
@@ -79,13 +87,24 @@ var compoPath = './main-mod/components';
 /*************************************************************************
  * JS files required in Index.js
  *************************************************************************/
-var mainModCtrl         = __webpack_require__(4);
-var mainModConfig       = __webpack_require__(5);
+var mainModCtrl         = __webpack_require__(7);
+var mainModConfig       = __webpack_require__(8);
+var about               = __webpack_require__(9)(compoPath + '/about/about.js'); 
+
+
+/*************************************************************************
+ * baseModules to be injected in main module
+ *************************************************************************/
+var baseModules =[
+  'ui.router',
+  'duScroll',
+   about.name
+]
 
 /*************************************************************************
  * Initializing Application Main Module
  *************************************************************************/
- var mainMod								= angular.module('amz-cen', ['ui.router', 'duScroll']);
+ var mainMod								= angular.module('amz-cen', baseModules);
 
 /*************************************************************************
  * mainMod Controllers
@@ -117,14 +136,6 @@ mainMod.run([
 , function ($location) {
     
 }]);
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(2);
-module.exports = angular;
-
 
 /***/ }),
 /* 2 */
@@ -39013,85 +39024,16 @@ angular.module('ui.router.state')
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports) {
-
-( function () {
-  'use strict'
-
-  module.exports = function (mainMod) {
-    mainMod.controller('main-mod-ctrl', [
-    '$scope',
-    '$document',
-    '$timeout'
-    , function ($scope, $document, $timeout) {
-      /**
-       * navbar scroll to div
-       */
-      $scope.navbar = function (eleID) { 
-        var getDivByElement = angular.element(document.getElementById(eleID))
-        //Timeout adds a delay effect.
-        $timeout(function() {
-          /* .scrollToElementAnimated( element [, offset, [, duration [, easing ] ] ] ) */         
-          $document.scrollToElementAnimated(getDivByElement, 70, 200);       
-        }, 500);
-      };
-
-    }]);
-  };
-
-})();
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-module.exports = function (app) {
-	app.config(statesFunc)
-}
-
-function statesFunc($stateProvider, $locationProvider, $urlRouterProvider) {
-	$locationProvider.hashPrefix('');
-	$locationProvider.html5Mode({
-		enabled: true,
-		requireBase: false
-	}	);
-	$stateProvider
-	.state('home', state.home)
-
-	$urlRouterProvider
-	.otherwise('/')
-}
-
-var state = {
-	home : {
-		url 	: '/',
-		views : 
-		{
-			'' : {
-				templateUrl : './main-mod/views/home.html',				
-			},
-			'navbar@home' : {
-				templateUrl : './main-mod/views/navbar.html'
-			},
-			data : {
-				requiredLogin : false
-			}	
-		}	
-	}
-}
-
-/***/ }),
-/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(1);
-__webpack_require__(7);
+__webpack_require__(0);
+__webpack_require__(5);
 
 module.exports = 'duScroll';
 
 
 /***/ }),
-/* 7 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {/**
@@ -39731,10 +39673,10 @@ angular.module('duScroll.scrollspy', ['duScroll.spyAPI'])
   };
 }]);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)(module)))
 
 /***/ }),
-/* 8 */
+/* 6 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -39760,6 +39702,124 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+( function () {
+  'use strict'
+
+  module.exports = function (mainMod) {
+    mainMod.controller('main-mod-ctrl', [
+    '$scope',
+    '$document',
+    '$timeout'
+    , function ($scope, $document, $timeout) {
+      /**
+       * navbar scroll to div
+       */
+      $scope.navbar = function (eleID) { 
+        var getDivByElement = angular.element(document.getElementById(eleID))
+        //Timeout adds a delay effect.
+        $timeout(function() {
+          /* .scrollToElementAnimated( element [, offset, [, duration [, easing ] ] ] ) */         
+          $document.scrollToElementAnimated(getDivByElement, 70, 200);       
+        }, 500);
+      };
+
+    }]);
+  };
+
+})();
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+module.exports = function (app) {
+	app.config(statesFunc)
+}
+
+function statesFunc($stateProvider, $locationProvider, $urlRouterProvider) {
+	$locationProvider.hashPrefix('');
+	$locationProvider.html5Mode({
+		enabled: true,
+		requireBase: false
+	}	);
+	$stateProvider
+	.state('home', state.home)
+
+	$urlRouterProvider
+	.otherwise('/')
+}
+
+var state = {
+	home : {
+		url 	: '/',
+		views : 
+		{
+			'' : {
+				templateUrl : './main-mod/views/home.html',				
+			},
+			'navbar@home' : {
+				templateUrl : './main-mod/views/navbar.html'
+			},
+			data : {
+				requiredLogin : false
+			}	
+		}	
+	}
+}
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./main-mod/components/about/about.js": 10
+};
+function webpackContext(req) {
+	return __webpack_require__(webpackContextResolve(req));
+};
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) // check for number or string
+		throw new Error("Cannot find module '" + req + "'.");
+	return id;
+};
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 9;
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+( function (){
+  'use strict'
+
+  var aboutModCtrl = __webpack_require__(11)
+
+  module.exports = angular.module('amz-cen.about', [])
+  .controller("about-mod-ctrl", aboutModCtrl);
+
+})();
+
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+module.exports = [
+  '$scope'
+  , function($scope) {
+  $scope.aboutMe = "This is clive";
+}]
 
 /***/ })
 /******/ ]);

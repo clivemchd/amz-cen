@@ -12,11 +12,22 @@ var compoPath = './main-mod/components';
  *************************************************************************/
 var mainModCtrl         = require('./main-mod/ctrl/main-mod-ctrl');
 var mainModConfig       = require('./main-mod/config/main-mod-config');
+var about               = require(compoPath + '/about/about.js'); 
+
+
+/*************************************************************************
+ * baseModules to be injected in main module amz-cen
+ *************************************************************************/
+var baseModules = [
+  'ui.router',
+  'duScroll',
+   about.name
+]
 
 /*************************************************************************
  * Initializing Application Main Module
  *************************************************************************/
- var mainMod								= angular.module('amz-cen', ['ui.router', 'duScroll']);
+ var mainMod								= angular.module('amz-cen', baseModules);
 
 /*************************************************************************
  * mainMod Controllers

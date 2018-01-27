@@ -1,16 +1,37 @@
-<div ui-view="navbar" class="fixed-nav"></div>
-<div id="home">
-  Hello world
+<header ui-view="navbar" class="fixed-nav"></header>
+<div class="content-wrapper">
+  <!-- *********************************************************************************** 
+  **                                        HOME 
+  ***********************************************************************************  -->
+  <div id="home" class="home-wrapper">
+    <div class="parallax-container">
+      <div id="layer-0" class="parallax-layer" data-speed="2"></div>
+      <div id="layer-1" class="parallax-layer" data-speed="5"></div>      
+    </div>
+  </div>
+  <!-- *********************************************************************************** 
+  **                                        ABOUT
+  ***********************************************************************************  -->
+  <div id="about" ng-app="amz-cen.about">
+    <span ng-controller="about-mod-ctrl">{{aboutMe}}</span>
+  </div>
+  <!-- *********************************************************************************** 
+  **                                      PORTFOLIO 
+  ***********************************************************************************  -->
+  <div id="portfolio">
+    This is portfolio
+  </div>
+  <!-- *********************************************************************************** 
+  **                                        BLOG 
+  ***********************************************************************************  -->
+  <div id="blog">
+    This is blog
+  </div>
+  <!-- *********************************************************************************** 
+  **                                       CONTACT 
+  ***********************************************************************************  -->
+  <div id="contact">
+    This is contact
+  </div>
 </div>
-<div id="about">
-  This is about
-</div>
-<div id="portfolio">
-  This is portfolio
-</div>
-<div id="blog">
-  This is blog
-</div>
-<div id="contact">
-  This is contact
-</div>
+

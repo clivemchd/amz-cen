@@ -1,0 +1,21 @@
+.parallax-container {
+  height: 1000px;  
+}
+
+.parallax-container {
+  background-color: #ffedc2;
+}
+
+.parallax_layer {
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+#layer-0 {
+  background: url('/assets/img/parallax/Sun.svg');
+}
+
+#layer-1 {
+  background: url('/assets/img/parallax/Mountains.svg');
+}
+
