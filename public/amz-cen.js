@@ -39716,6 +39716,8 @@ module.exports = function(module) {
     '$document',
     '$timeout'
     , function ($scope, $document, $timeout) {
+      $scope.hideUiView = true;
+
       /**
        * navbar scroll to div
        */
@@ -39727,6 +39729,11 @@ module.exports = function(module) {
           $document.scrollToElementAnimated(getDivByElement, 70, 200);       
         }, 500);
       };
+
+      $scope.isloadDone = function () {
+        console.log("done");
+        $scope.hideUiView = false;
+      }
 
     }]);
   };

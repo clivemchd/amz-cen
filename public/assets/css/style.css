@@ -20,6 +20,20 @@ a {
   outline: none;
 }
 
+.main-page-loader {
+  color: #ffffff;
+  font-size: 5em;
+  text-align: center;
+  position: relative;
+  top: 100px;
+  display: block;
+}
+
+/* Applies only when main-page-loader is switched on */
+.body-color {
+  background: chocolate;
+}
+
 #about, #contact {
   min-height: 400px;
   background: #ffffffe6;

@@ -20,9 +20,12 @@
 	<link rel="stylesheet" type="text/css" href="/assets/css/overides.css">			
 	<link rel="stylesheet" type="text/css" href="/assets/css/media-queries.css">		
 </head>
-<body ng-controller="main-mod-ctrl">
-	<ui-view>
+<body ng-controller="main-mod-ctrl" ng-class="{ 'body-color' : !hideUiView }">
+	<ui-view on-load="{{ isloadDone() }}" ng-hide="{{ hideUiView }}">
 	</ui-view>
+	<span class="main-page-loader" ng-show="{{ hideUiView }}">
+		<i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>					
+	</span>
 <!-- Latest compiled and minified JQuery -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js?"></script>
 <!-- Latest compiled and minified Bootstrap JavaScript -->
