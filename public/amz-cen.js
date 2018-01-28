@@ -90,7 +90,7 @@ var compoPath = './main-mod/components';
 var mainModCtrl         = __webpack_require__(7);
 var mainModConfig       = __webpack_require__(8);
 var about               = __webpack_require__(9)(compoPath + '/about/about.js');
-var contact             = __webpack_require__(13)(compoPath + '/contact/contact.js'); 
+var contact             = __webpack_require__(12)(compoPath + '/contact/contact.js'); 
 
 
 /*************************************************************************
@@ -39834,12 +39834,11 @@ module.exports = [
 }]
 
 /***/ }),
-/* 12 */,
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./main-mod/components/contact/contact.js": 14
+	"./main-mod/components/contact/contact.js": 13
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -39855,16 +39854,16 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 13;
+webpackContext.id = 12;
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ( function (){
   'use strict'
 
-  var contactModCtrl = __webpack_require__(15)
+  var contactModCtrl = __webpack_require__(14)
 
   module.exports = angular.module('amz-cen.contact', [])
   .controller("contact-mod-ctrl", contactModCtrl);
@@ -39874,7 +39873,7 @@ webpackContext.id = 13;
 
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = [
@@ -39890,11 +39889,14 @@ module.exports = [
     
     $scope.isFormSent   = !localStorage.getItem("isFormSent") ? $scope.isFormSent = false : $scope.isFormSent = true;
     $scope.formSending  = false;
-
+    $scope.errorInput   = false;
+    $scope.errorEmail   = false;            
 
     $scope.submitFormData = function () {
+      if(!validateFormData()) {
+        return;
+      }      
       $scope.formSending = true;
-      // validateUserData();
       var userProfile    = {
         name    : $scope.name,
         email   : $scope.email,
@@ -39918,9 +39920,27 @@ module.exports = [
       localStorage.removeItem("user");     
     };
 
-    function validateFormData () {
-
+    function validateFormData () {     
+      if(!$scope.name || !$scope.email || !$scope.subject || !$scope.message) {
+        return false;
+      }
+      if(isNaN($scope.phone)){
+        return false;
+      }
+      if($scope.errorEmail){
+        return false;        
+      }
+      return true;
     }
+
+    $scope.$watch('phone', function (n, o) {
+      n ? isNaN(n) ? $scope.errorNumber = true : $scope.errorNumber = false : $scope.errorNumber = false;
+    })
+
+    $scope.$watch('email', function (n, o) {
+      var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      n ? !filter.test(n) ? $scope.errorEmail = true : $scope.errorEmail = false : $scope.errorEmail = false;  
+    })
 
     function parseValue(key) {
       var parsedUserProfile = JSON.parse(localStorage.getItem("user"));

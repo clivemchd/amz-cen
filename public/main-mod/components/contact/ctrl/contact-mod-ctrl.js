@@ -11,11 +11,14 @@ module.exports = [
     
     $scope.isFormSent   = !localStorage.getItem("isFormSent") ? $scope.isFormSent = false : $scope.isFormSent = true;
     $scope.formSending  = false;
-
+    $scope.errorInput   = false;
+    $scope.errorEmail   = false;            
 
     $scope.submitFormData = function () {
+      if(!validateFormData()) {
+        return;
+      }      
       $scope.formSending = true;
-      // validateUserData();
       var userProfile    = {
         name    : $scope.name,
         email   : $scope.email,
@@ -39,9 +42,27 @@ module.exports = [
       localStorage.removeItem("user");     
     };
 
-    function validateFormData () {
-
+    function validateFormData () {     
+      if(!$scope.name || !$scope.email || !$scope.subject || !$scope.message) {
+        return false;
+      }
+      if(isNaN($scope.phone)){
+        return false;
+      }
+      if($scope.errorEmail){
+        return false;        
+      }
+      return true;
     }
+
+    $scope.$watch('phone', function (n, o) {
+      n ? isNaN(n) ? $scope.errorNumber = true : $scope.errorNumber = false : $scope.errorNumber = false;
+    })
+
+    $scope.$watch('email', function (n, o) {
+      var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      n ? !filter.test(n) ? $scope.errorEmail = true : $scope.errorEmail = false : $scope.errorEmail = false;  
+    })
 
     function parseValue(key) {
       var parsedUserProfile = JSON.parse(localStorage.getItem("user"));

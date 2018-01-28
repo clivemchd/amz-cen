@@ -40,8 +40,8 @@
       <form id="contact-form" ng-hide="isFormSent">
         <span ng-hide="formSending">
           <input type="text" class="form-input" placeholder="*Name" required ng-model="name" ng-disabled="formSending">
-          <input type="text" class="form-input" placeholder="*Email Address" required ng-model="email" ng-disabled="formSending">      
-          <input type="text" class="form-input" placeholder="Phone" ng-model="phone" ng-disabled="formSending">
+          <input type="text" class="form-input" placeholder="*Email Address" required ng-model="email" ng-disabled="formSending" ng-class="{ 'error-input' : errorEmail }">      
+          <input type="text" class="form-input" placeholder="Phone" ng-model="phone" ng-disabled="formSending" ng-class="{ 'error-input' : errorNumber }">
           <input type="text" class="form-input" placeholder="*Subject" required ng-model="subject" ng-disabled="formSending">                      
           <textarea type="text" class="contact-message form-input" placeholder="*Your Message" required ng-model="message" ng-disabled="formSending"></textarea>
           <button class="contact-submit-btn" ng-click="submitFormData()">
