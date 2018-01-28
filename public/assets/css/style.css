@@ -182,7 +182,7 @@ a:focus {
 #footer {
   text-align: center;
   height: 100px;
-  background: #000000;
+  background: #211e48;
 }
 
 #footer i {
@@ -192,8 +192,20 @@ a:focus {
   margin-top: 40px;
 }
 
-#footer i:hover {
-  color: #333;  
+#footer a[title="Facebook"] i:hover {
+  color: #4267B2;  
+}
+
+#footer a[title="Twitter"] i:hover {
+  color: #55ACEE;  
+}
+
+#footer a[title="Linkdin"] i:hover {
+  color: #0077B5;  
+}
+
+#footer a[title="Stack Overflow"] i:hover {
+  color: #F48024;  
 }
 
 
